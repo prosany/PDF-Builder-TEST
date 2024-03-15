@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const puppeteer = require('puppeteer');
 
 const app = express();
 
@@ -9,7 +10,6 @@ app.use(express.json());
 app.post('/build-pdf', async (req, res) => {
   try {
     const { html } = req.body;
-    console.log('🌺 | app.post | html:', html, req.body);
     if (!html) {
       return res.status(400).json({ error: 'Missing HTML content' });
     }
