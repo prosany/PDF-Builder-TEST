@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.post('/build-pdf', async (req, res) => {
   try {
-    const { html } = JSON.parse(req.body);
+    const { html } = req.body;
     if (!html) {
       return res.status(400).json({ error: 'Missing HTML content' });
     }
