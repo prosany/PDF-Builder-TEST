@@ -61,7 +61,7 @@ app.post('/build-pdf', async (req, res) => {
 
     res.setHeader('Content-Disposition', `attachment; filename="report.pdf"`);
     res.setHeader('Content-Type', 'application/pdf');
-    res.send(pdfBuffer);
+    return res.send(pdfBuffer);
   } catch (error) {
     console.error(error);
     return res.status(500).json({
