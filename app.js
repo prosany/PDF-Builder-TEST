@@ -63,6 +63,7 @@ app.post('/build-pdf', async (req, res) => {
       status: 0,
       message: 'An error occurred while generating the PDF',
       error,
+      messageTwo: error.message,
     });
   }
   res.json({ message: 'PDF generated successfully' });
