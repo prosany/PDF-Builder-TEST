@@ -13,7 +13,9 @@ app.post('/build-pdf', async (req, res) => {
     if (!html) {
       return res.status(400).json({ error: 'Missing HTML content' });
     }
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      executablePath: '/usr/bin/chromium-browser',
+    });
     const page = await browser.newPage();
     const htmlWithStyles = `
     <!DOCTYPE html>
